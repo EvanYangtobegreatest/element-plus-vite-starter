@@ -25,7 +25,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const displayUrls = ref([]); // 用于显示的图片 URL
+const displayUrls = []; // 用于显示的图片 URL
 const count = ref(8); // 初始加载的图片数量
 const viewerVisible = ref(false); // 控制预览是否可见
 const currentIndex = ref(0); // 当前图片索引
@@ -44,8 +44,7 @@ const fetchImageUrls = async (folderName: string) => {
     const data = await response.json();
     // 假设返回的数据结构为 { images: string[] }
     allImages = data.images; // 保存所有图片 URL
-      console.log("SAd",allImages.slice(0, count.value));
-    displayUrls.value = allImages.slice(0, count.value); // 更新当前显示的图片 URL
+    displayUrls = allImages.slice(0, count.value); // 更新当前显示的图片 URL
     console.log("SA231",displayUrls);
   } catch (error) {
     console.error('Error fetching image URLs:', error);
@@ -56,7 +55,7 @@ const fetchImageUrls = async (folderName: string) => {
 const load = () => {
   if (count.value < allImages.length) {
     count.value += 8; // 每次加载8张图片
-    displayUrls.value = [...allImages.slice(0, count.value)]; // 更新显示的图片 URL
+    displayUrls = allImages.slice(0, count.value); // 更新显示的图片 URL
   }
 };
 // 打开全屏预览
