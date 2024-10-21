@@ -44,7 +44,7 @@ const fetchImageUrls = async (folderName: string) => {
     const data = await response.json();
     // 假设返回的数据结构为 { images: string[] }
     allImages = data.images; // 保存所有图片 URL
-    displayUrls.value = ref(allImages).slice(0, count.value); // 更新当前显示的图片 URL
+    displayUrls.value = [...allImages.slice(0, count.value)]; // 更新当前显示的图片 URL
     console.log("SAd",displayUrls);
   } catch (error) {
     console.error('Error fetching image URLs:', error);
@@ -55,7 +55,7 @@ const fetchImageUrls = async (folderName: string) => {
 const load = () => {
   if (count.value < allImages.length) {
     count.value += 8; // 每次加载8张图片
-    displayUrls.value = allImages.slice(0, count.value); // 更新显示的图片 URL
+    displayUrls.value = [...allImages.slice(0, count.value)]; // 更新显示的图片 URL
   }
 };
 // 打开全屏预览
