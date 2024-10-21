@@ -26,7 +26,7 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const displayUrls = ref([]); // 用于显示的图片 URL
-const count = ref(8); // 初始加载的图片数量
+const count = ref(16); // 初始加载的图片数量
 const viewerVisible = ref(false); // 控制预览是否可见
 const currentIndex = ref(0); // 当前图片索引
 
