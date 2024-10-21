@@ -30,34 +30,38 @@ const count = ref(8); // 初始加载的图片数量
 const viewerVisible = ref(false); // 控制预览是否可见
 const currentIndex = ref(0); // 当前图片索引
 
+// 声明一个全局变量来存储所有的图片 URL
+let allImages: string[] = [];
+
 // 根据文件夹名获取图片 URL
 const fetchImageUrls = async (folderName: string) => {
   try {
-    const response = await fetch(`https://misty-recipe-c3a9.1310244108.workers.dev/?folder=%E6%94%B6%E8%97%8F`);
-    console.log(response)
+    const response = await fetch(`https://misty-recipe-c3a9.1310244108.workers.dev/?folder=${encodeURIComponent(folderName)}`);
+    console.log(response);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
     // 假设返回的数据结构为 { images: string[] }
-    displayUrls.value = data.images.slice(0, count.value); // 更新图片 URL
-    console.log(displayUrls)
+    allImages = data.images; // 保存所有图片 URL
+    displayUrls.value = allImages.slice(0, count.value); // 更新当前显示的图片 URL
+    console.log(displayUrls);
   } catch (error) {
     console.error('Error fetching image URLs:', error);
   }
 };
 
+// 加载更多图片
+const load = () => {
+  if (count.value < allImages.length) {
+    count.value += 8; // 每次加载8张图片
+    displayUrls.value = allImages.slice(0, count.value); // 更新显示的图片 URL
+  }
+};
 // 打开全屏预览
 const openViewer = (index: number) => {
   currentIndex.value = index;
   viewerVisible.value = true;
-};
-
-// 加载更多图片
-const load = () => {
-  if (count.value < displayUrls.value.length) {
-    count.value += 8; // 每次加载8张图片
-  }
 };
 
 onMounted(() => {
