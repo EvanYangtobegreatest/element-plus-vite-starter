@@ -44,6 +44,7 @@ const fetchImageUrls = async (folderName: string) => {
     const data = await response.json();
     // 假设返回的数据结构为 { images: string[] }
     allImages = data.images; // 保存所有图片 URL
+      console.log("SAd",allImages);
     displayUrls.value = [...allImages.slice(0, count.value)]; // 更新当前显示的图片 URL
     console.log("SAd",displayUrls);
   } catch (error) {
