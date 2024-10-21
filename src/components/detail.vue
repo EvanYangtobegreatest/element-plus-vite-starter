@@ -58,7 +58,7 @@ const fetchImageUrls = async (folderName: string) => {
 const load = () => {
   if (count.value < allImages.length) {
     count.value += 8; // 每次加载8张图片
-    displayUrls = [...allImages.slice(0, count.value)]; // 更新显示的图片 URL
+    displayUrls.value = [...allImages.slice(0, count.value)]; // 更新显示的图片 URL
   }
 };
 // 打开全屏预览
