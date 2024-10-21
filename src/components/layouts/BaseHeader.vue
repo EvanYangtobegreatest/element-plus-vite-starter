@@ -1,31 +1,42 @@
-<script lang="ts" setup>
-import { toggleDark } from "~/composables";
-</script>
-
 <template>
   <el-menu class="el-menu-demo" mode="horizontal">
-    <el-menu-item index="1">Element Plus</el-menu-item>
-    <el-sub-menu index="2">
-      <template #title>Workspace</template>
-      <el-menu-item index="2-1">item one</el-menu-item>
-      <el-menu-item index="2-2">item two</el-menu-item>
-      <el-menu-item index="2-3">item three</el-menu-item>
-      <el-sub-menu index="2-4">
-        <template #title>item four</template>
-        <el-menu-item index="2-4-1">item one</el-menu-item>
-        <el-menu-item index="2-4-2">item two</el-menu-item>
-        <el-menu-item index="2-4-3">item three</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
-    <el-menu-item index="3" disabled>Info</el-menu-item>
-    <el-menu-item index="4">Orders</el-menu-item>
+    <!-- 点击 Evan Yang 跳转到首页 -->
+    <el-menu-item index="1" @click="goToHome">Evan Yang</el-menu-item>
+
     <el-menu-item h="full" @click="toggleDark()">
       <button
-        class="border-none w-full bg-transparent cursor-pointer"
-        style="height: var(--ep-menu-item-height)"
+          class="border-none w-full bg-transparent cursor-pointer"
+          style="height: var(--ep-menu-item-height)"
       >
         <i inline-flex i="dark:ep-moon ep-sunny" />
       </button>
     </el-menu-item>
   </el-menu>
 </template>
+
+<style scoped>
+.el-menu-demo {
+  border: none; /* 去掉整个菜单的边框 */
+}
+
+.el-menu-demo .el-menu-item {
+  border-right: none; /* 去掉每个菜单项之间的右边框 */
+}
+
+/* 可选: 去掉鼠标悬停时的边框（如果有的话） */
+.el-menu-demo .el-menu-item:hover {
+  border: none; /* 去掉鼠标悬停时的边框 */
+}
+</style>
+
+<script lang="ts" setup>
+import { toggleDark } from "~/composables";
+import { useRouter } from 'vue-router'; // 引入 useRouter
+
+const router = useRouter(); // 获取路由实例
+
+// 跳转首页的方法
+const goToHome = () => {
+  router.push('/'); // 跳转到首页
+};
+</script>

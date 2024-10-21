@@ -1,12 +1,11 @@
 <template>
   <el-config-provider namespace="ep">
-    <BaseHeader />
     <div class="flex main-container">
       <BaseSide />
-      <div w="full" py="4">
-        <Logos my="4" />
-        <HelloWorld msg="Hello Vue 3 + Element Plus + Vite" />
+      <div class="w-full h-full ">
+        <router-view /> <!-- 使用 router-view 来加载子组件 -->
       </div>
+
     </div>
   </el-config-provider>
 </template>
@@ -18,6 +17,6 @@
 }
 
 .main-container {
-  height: calc(100vh - var(--ep-menu-item-height) - 3px);
+  height:100vh;
 }
 </style>

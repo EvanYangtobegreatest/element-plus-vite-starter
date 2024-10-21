@@ -1,20 +1,19 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-
-// import "~/styles/element/index.scss";
-
-// import ElementPlus from "element-plus";
-// import all element css, uncommented next line
-// import "element-plus/dist/index.css";
-
-// or use cdn, uncomment cdn link in `index.html`
+import router from "./router"; // 引入路由器
 
 import "~/styles/index.scss";
 import "uno.css";
-
-// If you want to use ElMessage, import it.
-import "element-plus/theme-chalk/src/message.scss";
-
+import "element-plus/theme-chalk/src/message.scss"; // 可选，根据需要引入
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 const app = createApp(App);
-// app.use(ElementPlus);
+
+// 注册 Element Plus 图标
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component);
+}
+// 使用路由器
+app.use(router);
+
+// 挂载应用
 app.mount("#app");
