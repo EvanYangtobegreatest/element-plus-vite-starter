@@ -77,7 +77,7 @@ const setLoading = () => {
 onMounted(() => {
   setLoading(); // 开始加载
   lists.value = [
-    { imgUrl: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg', name: 'Deer' },
+    { imgUrl: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg', name: '收藏' },
     { imgUrl: 'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg', name: 'Horse' },
     { imgUrl: 'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg', name: 'Mountain Lion' },
   ];
