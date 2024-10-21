@@ -40,7 +40,7 @@ const fetchImageUrls = async (folderName: string) => {
     }
     const data = await response.json();
     // 假设返回的数据结构为 { images: string[] }
-    displayUrls.value = data.images; // 更新图片 URL
+    displayUrls.value = data.images.slice(0, count.value); // 更新图片 URL
     console.log(displayUrls)
   } catch (error) {
     console.error('Error fetching image URLs:', error);
