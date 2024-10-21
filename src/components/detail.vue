@@ -45,7 +45,7 @@ const fetchImageUrls = async (folderName: string) => {
     // 假设返回的数据结构为 { images: string[] }
     allImages = data.images; // 保存所有图片 URL
     displayUrls.value = allImages.slice(0, count.value); // 更新当前显示的图片 URL
-    console.log(displayUrls);
+    console.log("SAd",displayUrls);
   } catch (error) {
     console.error('Error fetching image URLs:', error);
   }
