@@ -73,15 +73,28 @@ const setLoading = () => {
   }, 2000);
 };
 
+// 从服务器获取 foldersWithImages 数据
+const fetchFoldersWithImages = async () => {
+  try {
+    const response = await fetch('https://misty-recipe-c3a9.1310244108.workers.dev'); // 替换为真实的 API 请求
+    const data = await response.json();
+
+    // 映射数据到列表
+    lists.value = data.foldersWithImages.map((folder: { folderName: string; firstImage: string }) => ({
+      name: folder.folderName, // 文件夹名
+      imgUrl: folder.firstImage // 文件夹的第一张图片 URL
+    }));
+  } catch (error) {
+    console.error('Error fetching folders with images:', error);
+  } finally {
+    loading.value = false;
+  }
+};
+
 // 获取数据
 onMounted(() => {
   setLoading(); // 开始加载
-  lists.value = [
-    { imgUrl: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg', name: '收藏' },
-    { imgUrl: 'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg', name: 'Horse' },
-    { imgUrl: 'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg', name: 'Mountain Lion' },
-  ];
-  loading.value = false; // 停止加载
+  fetchFoldersWithImages(); // 调用 API 获取数据
 });
 </script>
 
