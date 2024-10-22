@@ -29,7 +29,7 @@
             <img
                 :src="item.imgUrl"
                 class="image multi-content"
-              style="max-width: 100%;height: 250px;"
+              style="max-width: 100%;height: 200px;"
                 alt="item.name"
             />
             <div style="padding: 14px">
@@ -101,7 +101,7 @@ onMounted(() => {
 <style scoped>
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 每行3列 */
+  grid-template-columns: repeat(4, 1fr); /* 每行4列 */
   gap: 8px; /* 网格项之间的间距 */
 }
 
