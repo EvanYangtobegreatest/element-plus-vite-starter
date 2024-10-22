@@ -41,9 +41,8 @@ export default {
     return {
       images: [
         'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-        'https://via.placeholder.com/1920x1080/ff7f7f/333333?text=Slide+2',
-        'https://via.placeholder.com/1920x1080/7f7fff/333333?text=Slide+3',
-        'https://via.placeholder.com/1920x1080/7fff7f/333333?text=Slide+4'
+        'https://pub-c0e7f6c66b954c3a93e96fc7aa5425c6.r2.dev/%E6%94%B6%E8%97%8F/IMG_9079.JPG',
+        'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg'
       ]
     };
   }
