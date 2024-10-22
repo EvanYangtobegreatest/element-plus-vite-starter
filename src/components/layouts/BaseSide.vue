@@ -12,8 +12,7 @@
         mode="vertical"
     >
       <el-menu-item index="1">
-        <!-- 图片作为Logo -->
-        <img class="logo" src="https://pub-c0e7f6c66b954c3a93e96fc7aa5425c6.r2.dev/%E6%94%B6%E8%97%8F/IMG_5657.JPG" alt="Evan Yang" />
+        <el-icon><User /></el-icon>
         <!-- 菜单标题，折叠时隐藏 -->
         <span v-if="!isCollapse" class="menu-title">Evan Yang</span>
       </el-menu-item>
