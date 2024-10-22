@@ -1,14 +1,7 @@
 <template>
   <div class="block text-center">
-    <el-carousel
-      :interval="3000"
-      arrow="hover"
-      height="100vh"
-      :autoplay="true"
-      indicator-position="none"
-      loop="true"
-      transition="fade"  <!-- 使用淡入淡出过渡效果 -->
-    >
+    <el-carousel :interval="2000" arrow="never" height="100vh"  motion-blur
+                 :autoplay="true" indicator-position="none" loop="true">
       <el-carousel-item v-for="(image, index) in images" :key="index">
         <img :src="image" alt="Carousel Image" class="carousel-image" />
       </el-carousel-item>
@@ -17,6 +10,10 @@
 </template>
 
 <style scoped>
+.demonstration {
+  color: var(--el-text-color-secondary);
+}
+
 .carousel-image {
   width: 100%;
   height: 100%;
@@ -27,15 +24,6 @@
   display: flex; /* 使用 flexbox 布局 */
   justify-content: center; /* 水平居中 */
   align-items: center; /* 垂直居中 */
-}
-
-.el-carousel__item img {
-  transition: opacity 1s ease-in-out; /* 添加淡入淡出动画效果 */
-  opacity: 0; /* 初始时图片透明 */
-}
-
-.el-carousel__item.is-active img {
-  opacity: 1; /* 当前激活的图片显示 */
 }
 
 .el-carousel__item:nth-child(2n) {
