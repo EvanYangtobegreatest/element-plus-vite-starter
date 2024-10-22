@@ -1,8 +1,16 @@
 <template>
   <div class="block text-center">
-    <el-carousel :interval="3000" arrow="hover" height="100vh" :autoplay="true" indicator-position="none" loop="true" class="fade-carousel">
-      <el-carousel-item v-for="(image, index) in images" :key="index" class="carousel-item">
-        <img :src="image" alt="Carousel Image" class="carousel-image fade" />
+    <el-carousel
+      :interval="3000"
+      arrow="hover"
+      height="100vh"
+      :autoplay="true"
+      indicator-position="none"
+      loop="true"
+      transition="fade"  <!-- 使用淡入淡出过渡效果 -->
+    >
+      <el-carousel-item v-for="(image, index) in images" :key="index">
+        <img :src="image" alt="Carousel Image" class="carousel-image" />
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -13,14 +21,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover; /* 确保图片自适应容器 */
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; /* 添加动画效果 */
-  opacity: 0;
-  transform: scale(0.8); /* 初始缩放，显得图片深入 */
-}
-
-.el-carousel__item.is-active .carousel-image {
-  opacity: 1;
-  transform: scale(1); /* 当前图片放大到正常大小 */
 }
 
 .el-carousel__item {
@@ -29,28 +29,21 @@
   align-items: center; /* 垂直居中 */
 }
 
+.el-carousel__item img {
+  transition: opacity 1s ease-in-out; /* 添加淡入淡出动画效果 */
+  opacity: 0; /* 初始时图片透明 */
+}
+
+.el-carousel__item.is-active img {
+  opacity: 1; /* 当前激活的图片显示 */
+}
+
 .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
 }
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
-}
-
-/* 逐渐放大并变得更清晰的效果 */
-.fade {
-  animation: fadeInZoom 1s ease-in-out forwards;
-}
-
-@keyframes fadeInZoom {
-  from {
-    opacity: 0;
-    transform: scale(0.8); /* 初始较小 */
-  }
-  to {
-    opacity: 1;
-    transform: scale(1); /* 放大到正常大小 */
-  }
 }
 </style>
 
