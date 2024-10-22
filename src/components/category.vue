@@ -101,7 +101,7 @@ onMounted(() => {
 <style scoped>
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 每行3列 */
+  grid-template-columns: repeat(4, 1fr); /* 每行3列 */
   gap: 8px; /* 网格项之间的间距 */
 }
 
