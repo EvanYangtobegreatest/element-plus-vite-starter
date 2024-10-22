@@ -29,7 +29,7 @@
             <img
                 :src="item.imgUrl"
                 class="image multi-content"
-               style="max-width: 100%; height: 200px; object-fit: cover;"
+               style="max-width: 100%; height: 300px;"
                 alt="item.name"
             />
             <div style="padding: 14px">
